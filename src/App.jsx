@@ -4,6 +4,7 @@ import secImg from './assets/sampath.jpeg';
 import logo from './assets/logo.png';
 import nalika from './assets/nalika.png';
 import radha from './assets/radha.png';
+import hema from './assets/hema.png';
 
 const MinistryOrgChart = () => {
   // Sample data - you can replace with actual data
@@ -39,7 +40,7 @@ const MinistryOrgChart = () => {
         department: "Social Security Division",
         education: "MA in Social Policy",
         phone: "+94 11 234 5682",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+        image: hema
       },
       {
         name: "Mr. Gamini",
@@ -312,6 +313,7 @@ const MinistryOrgChart = () => {
   });
 
   const [searchTerm, setSearchTerm] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Flatten all staff for search
   const allStaff = [
@@ -375,7 +377,7 @@ const MinistryOrgChart = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
-      {/* Fixed Navigation Bar */}
+      {/* Responsive Navigation Bar */}
       <nav className="fixed top-0 w-full bg-white shadow-lg z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -398,13 +400,27 @@ const MinistryOrgChart = () => {
               </div>
             </div>
 
-            {/* Contact and Search */}
-            <div className="flex items-center space-x-6">
+            {/* Mobile menu button */}
+            <div className="flex md:hidden">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                aria-controls="mobile-menu"
+                aria-expanded={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen((open) => !open)}
+              >
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Contact and Search (Desktop) */}
+            <div className="hidden md:flex items-center space-x-6">
               <div className="flex items-center text-gray-700">
                 <Phone className="w-4 h-4 mr-2" />
                 <span className="text-sm font-medium">+94 112 887 349</span>
               </div>
-              
               {/* Search Bar */}
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
@@ -421,6 +437,29 @@ const MinistryOrgChart = () => {
             </div>
           </div>
         </div>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden" id="mobile-menu">
+            <div className="px-4 pt-4 pb-3 space-y-4 bg-white border-t border-gray-200 shadow-lg">
+              <div className="flex items-center text-gray-700">
+                <Phone className="w-4 h-4 mr-2" />
+                <span className="text-sm font-medium">+94 112 887 349</span>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
+                  <Search className="h-4 w-4 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search by name or department..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm w-full"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Main Content */}
