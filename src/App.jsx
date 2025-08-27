@@ -514,6 +514,17 @@ const MinistryOrgChart = () => {
                   ))}
                 </div>
               </div>
+              {/* Fourth Level - Director Generals */}
+              <div>
+                <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+                  Director General
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {staffData.directorGenerals.map((dg, index) => (
+                    <StaffCard key={index} person={dg} />
+                  ))}
+                </div>
+              </div>
 
               {/* Third Level - CFO */}
               <div>
@@ -527,17 +538,7 @@ const MinistryOrgChart = () => {
                 </div>
               </div>
 
-              {/* Fourth Level - Director Generals */}
-              <div>
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
-                  Director General
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  {staffData.directorGenerals.map((dg, index) => (
-                    <StaffCard key={index} person={dg} />
-                  ))}
-                </div>
-              </div>
+              
 
               {/* Directors */}
               <div>
@@ -578,7 +579,7 @@ const MinistryOrgChart = () => {
               {/* Deputy Directors / Additional Directors */}
               <div>
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
-                  Deputy Directors / Additional Directors
+                  Deputy Directors / Assistant Directors
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
                   {staffData.deputyDirectors.map((deputy, index) => (
