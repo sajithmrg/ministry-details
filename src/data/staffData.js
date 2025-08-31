@@ -21,7 +21,7 @@ import dinari from '../assets/dinari.jpeg';
 import gayani from '../assets/gayani.jpeg';
 import yoga from '../assets/yoga.png';
 import wasana from '../assets/wasana.png';
-import milanthi from '../assets/milanthi.jpeg';
+// import milanthi from '../assets/milanthi.jpeg';
 import jeewanthi from '../assets/jeewanthi.png';
 
 
@@ -317,7 +317,7 @@ export const staffData = {
       phone: "+94 11 234 5697",
       email: "kumudini@ministry.gov.lk",
       joiningDate: "10 years, 04 months",
-      image: milanthi
+      image: gayani
     },
     {
       id: "dd-005",
